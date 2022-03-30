@@ -1,0 +1,12 @@
+.place__container {
+  margin: 0;
+  padding: 25px 15px 25px 21px;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 10px 10px;
+}
+
+
+

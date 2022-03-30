@@ -1,0 +1,12 @@
+.place__button {
+  margin: 0;
+  border: none;
+  padding: 0;
+  width: 22px;
+  height: 19px;
+  background-image: url(../../../Image/place-heart.svg);
+  background-color: #FFFFFF;
+}
+
+
+

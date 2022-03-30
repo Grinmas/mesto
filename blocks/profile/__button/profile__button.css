@@ -1,0 +1,37 @@
+.profile__button {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  cursor: pointer;
+  border: none;
+  background: none;
+  height: 22px;
+  width: 22px;
+}
+
+@media screen and (max-width: 490px) {
+  .profile__button {
+    height: 16px;
+    width: 16px;
+  }
+}
+
+.profile__button:before {
+  position: absolute;
+  content: '';
+  height: 22px;
+  border: 1px solid #FFFFFF;
+  top: 0;
+}
+
+.profile__button:after {
+  position: absolute;
+  content: '';
+  height: 22px;
+  border: 1px solid #FFFFFF;
+  top: 0;
+  transform: rotate(-90deg);
+}
+
+
+
