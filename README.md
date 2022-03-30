@@ -10,5 +10,5 @@
 БЭМ, grid, flex, позиционирование.
 
 
-[Ссылка на проект](https://)
+[Ссылка на проект](https://grinmas.github.io/mesto/)
 
