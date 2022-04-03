@@ -8,5 +8,12 @@
   color: #545454;
 }
 
-
+@media screen and (max-width: 321px) {
+  .footer__author {
+    font-size: 14px;
+    line-height: 17px;
+    margin-left: 19px;
+    margin-right: 19px;
+  }
+}
 

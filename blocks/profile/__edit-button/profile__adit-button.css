@@ -5,9 +5,10 @@
   height: 24px;
   background-color: #000000;
   background-image: url(../../../Image/edit-button.svg);
-  background-size: cover;
+  background-size: 100% 100%;
   outline: none;
   cursor: pointer;
+  display: block;
 }
 
 @media screen and (max-width: 490px) {

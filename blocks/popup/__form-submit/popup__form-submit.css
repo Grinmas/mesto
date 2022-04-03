@@ -14,6 +14,7 @@
   line-height: 22px;
   text-align: center;
   color: #FFFFFF;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 490px) {

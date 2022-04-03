@@ -1,12 +1,18 @@
 .profile__button {
   position: absolute;
-  left: 50%;
+  left: 43%;
   top: 25%;
   cursor: pointer;
   border: none;
   background: none;
   height: 22px;
   width: 22px;
+}
+
+@media screen and (max-width: 662px) {
+  .profile__button {
+    left: 48%;
+  }
 }
 
 @media screen and (max-width: 490px) {
