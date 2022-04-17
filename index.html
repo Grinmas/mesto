@@ -25,50 +25,21 @@
         <button class="profile__add-button opacity" type="button"></button>
       </section>
 
-      <section class="places" aria-label="Секция с карточками">
-        <article class="place">
-          <img class="place__image" src="./Image/photo-karachaevsk.jpg" alt="Заброшенная церковь на фоне гор в Карачаевске">
-          <div class="place__container">
-            <h2 class="place__title">Карачаевск</h2>
-            <button class="place__button" type="button"></button>
-          </div>
-        </article>        
-        <article class="place">
-          <img class="place__image" src="./Image/photo-elbrus.jpg" alt="Гора Эльбрус в дали">
-          <div class="place__container">
-            <h2 class="place__title">Гора Эльбрус</h2>
-            <button class="place__button" type="button"></button>
-          </div>
-        </article>
-        <article class="place">
-          <img class="place__image" src="./Image/photo-dombai.jpg" alt="Гора Донбая">
-          <div class="place__container">
-            <h2 class="place__title">Домбай</h2>
-            <button class="place__button" type="button"></button>
-          </div>
-        </article>
-        <article class="place">
-          <img class="place__image" src="./Image/photo-elbrus.jpg" alt="Гора Эльбрус в дали">
-          <div class="place__container">
-            <h2 class="place__title">Гора Эльбрус</h2>
-            <button class="place__button" type="button"></button>
-          </div>
-        </article>
-        <article class="place">
-          <img class="place__image" src="./Image/photo-dombai.jpg" alt="Гора Донбая">
-          <div class="place__container">
-            <h2 class="place__title">Домбай</h2>
-            <button class="place__button" type="button"></button>
-          </div>
-        </article>
-        <article class="place">
-          <img class="place__image" src="./Image/photo-karachaevsk.jpg" alt="Заброшенная церковь на фоне гор в Карачаевске">
-          <div class="place__container">
-            <h2 class="place__title">Карачаево-Черкесия</h2>
-            <button class="place__button" type="button"></button>
-          </div>
-        </article>
-      </section>
+      
+        <section class="places" aria-label="Секция с карточками">
+          
+        </section>
+
+        <template id="place-template">
+          <article class="place">
+            <button class="place__delete-button opacity" type="button"></button>
+            <img class="place__image">
+            <div class="place__container">
+              <h2 class="place__title"></h2>
+              <button class="place__button" type="button"></button>
+            </div>
+          </article>
+        </template>
     </main>
     <footer class="footer">
       <p class="footer__author">&copy; 2020 Mesto Russia</p>
@@ -84,6 +55,28 @@
         <input type="text" class="popup__input popup__input_el_job" name="job">        
         <input type="submit" class="popup__form-submit" value="Сохранить">
       </form>
+    </div>
+  </div>
+
+  <div class="popup popup__add-card">
+    <div class="popup__window">
+      <button class="popup__close-button popup__close-add-card opacity" type="button"></button>
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__form popup__form_add-card" name="popup-form">
+        <input type="text" class="popup__input popup__input_el_place-name" name="firstname" 
+          placeholder="Название">
+        <input type="url" class="popup__input popup__input_el_place-src" name="job" 
+          placeholder="Ссылка на картинку">        
+        <input type="submit" class="popup__form-submit" value="Создать">
+      </form>
+    </div>
+  </div>
+
+  <div class="popup popup__full-card popup_opacity">
+    <div class="popup__container">
+      <button class="popup__close-button opacity" type="button"></button>
+      <img class="popup__image">
+      <h2 class="popup__caption"></h2>
     </div>
   </div>
 <script src="./scripts/index.js"></script> 

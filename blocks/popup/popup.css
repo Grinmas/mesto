@@ -8,9 +8,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 1s, opacity 1s linear;
 }
 
 
