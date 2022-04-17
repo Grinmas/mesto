@@ -7,7 +7,7 @@ const popupJobInput = document.querySelector('.popup__input_el_job');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 const profileAddButton = document.querySelector('.profile__add-button');
-const popupAddCard = document.querySelector('.popup__add-card');
+const popupAddCard = document.querySelector('.popup_add-card');
 const closeAddCard =document.querySelector('.popup__close-add-card')
 
 function openPopup() {
@@ -79,7 +79,7 @@ const placeTemplate = document.querySelector('#place-template').content;
 const formAddCard = document.querySelector('.popup__form_add-card');
 const inputPlaceName = document.querySelector('.popup__input_el_place-name');
 const inputPlaceSrc = document.querySelector('.popup__input_el_place-src');
-const popupFullCard = document.querySelector('.popup__full-card')
+const popupFullCard = document.querySelector('.popup_full-card')
 
 initialCards.forEach(function(item) {
   const placeElement = placeTemplate.querySelector('.place').cloneNode(true);
