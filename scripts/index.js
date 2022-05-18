@@ -21,6 +21,12 @@ const closeButtons = document.querySelectorAll('.popup__close-button');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  window.addEventListener('keydown', function closePopupEsc (evt) {
+    if (evt.key === 'Escape') {
+      closePopup(popup);
+      window.removeEventListener('keydown', closePopupEsc);
+    };
+  });
 };
 
 function closePopup(popup) {
@@ -48,6 +54,20 @@ closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
+
+const closePopupOverlay = () => {
+  const popupList = Array.from(document.querySelectorAll('.popup'));
+  popupList.forEach((popupElement) => {
+    popupElement.addEventListener('click', (evt) => {
+      if (evt.target === evt.currentTarget) {
+        closePopup(popupElement)
+      };
+    });
+  });
+};
+
+closePopupOverlay();
+
 
 profileAddButton.addEventListener('click', function () {
   openPopup(popupAddCard);

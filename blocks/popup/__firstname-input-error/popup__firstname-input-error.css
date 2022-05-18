@@ -1,0 +1,17 @@
+.popup__firstname-input-error {
+  position: absolute;
+  top: 136px;
+  left: 8.4%;
+}
+
+@media screen and (max-width: 562px) {
+  .popup__firstname-input-error {
+    top: 163px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .popup__firstname-input-error {
+    top: 139px;
+  }
+}

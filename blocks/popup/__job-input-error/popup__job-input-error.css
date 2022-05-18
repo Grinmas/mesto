@@ -1,0 +1,17 @@
+.popup__job-input-error {
+  position: absolute;
+  top: 183px;
+  left: 8.4%;
+}
+
+@media screen and (max-width: 562px) {
+  .popup__job-input-error {
+    top: 211px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .popup__job-input-error {
+    top: 188px;
+  }
+}
