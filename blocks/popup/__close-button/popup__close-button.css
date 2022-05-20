@@ -32,18 +32,20 @@
   position: absolute;
   content: '';
   height: 32px;
-  border: 1px solid #FFFFFF;
+  border: 2px solid #FFFFFF;
   top: 0;
   transform: rotate(45deg);
+  background-color: #FFFFFF;
 }
 
 .popup__close-button:after {
   position: absolute;
   content: '';
   height: 32px;
-  border: 1px solid #FFFFFF;
+  border: 2px solid #FFFFFF;
   top: 0;
   transform: rotate(-45deg);
+  background-color: #FFFFFF;
 }
 
 

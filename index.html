@@ -32,7 +32,7 @@
         <template id="place-template">
           <article class="place">
             <button class="place__delete-button opacity" type="button"></button>
-            <img class="place__image">
+            <img class="place__image opacity">
             <div class="place__container">
               <h2 class="place__title"></h2>
               <button class="place__button" type="button"></button>
@@ -70,7 +70,7 @@
         <input id="popup__link-card" type="url" class="popup__input popup__input_el_place-src" name="link" 
           placeholder="Ссылка на картинку" required >
         <span class="popup__link-card-error popup__input-error"></span>
-        <input type="submit" class="popup__form-submit popup__form-submit_invalid" value="Создать">
+        <input type="submit" class="popup__form-submit popup__form-submit_invalid" value="Создать" disabled>
       </form>
     </div>
   </div>
@@ -81,6 +81,7 @@
       <h2 class="popup__caption"></h2>
     </div>
   </div>
+  <script src="./scripts/cards.js"></script>
 <script src="./scripts/index.js"></script>
 <script src="./scripts/validate.js"></script>
 </body>
