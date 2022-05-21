@@ -19,18 +19,18 @@ const inputPlaceSrc = document.querySelector('.popup__input_el_place-src');
 const popupFullCard = document.querySelector('.popup_full-card');
 const closeFullCardBtn = popupFullCard.querySelector('.popup__close-button');
 const closeButtons = document.querySelectorAll('.popup__close-button');
+const popupList = Array.from(document.querySelectorAll('.popup'));
 
-function closePopupEsc (evt, popup) {
+function closePopupEsc (evt) {
   if (evt.key === 'Escape') {
-    closePopup(popup);
+    popupList.forEach((popupElement) => {
+    closePopup(popupElement);})
   };
-}
+};
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', function (evt) {
-    closePopupEsc(evt, popup);
-  });
+  document.addEventListener('keydown', closePopupEsc);
 };
 
 function closePopup(popup) {
@@ -61,7 +61,6 @@ closeButtons.forEach((button) => {
 });
 
 const closePopupOverlay = () => {
-  const popupList = Array.from(document.querySelectorAll('.popup'));
   popupList.forEach((popupElement) => {
     popupElement.addEventListener('click', (evt) => {
       if (evt.target === evt.currentTarget) {
