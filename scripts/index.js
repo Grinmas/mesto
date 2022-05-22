@@ -23,8 +23,8 @@ const popupList = Array.from(document.querySelectorAll('.popup'));
 
 function closePopupEsc (evt) {
   if (evt.key === 'Escape') {
-    popupList.forEach((popupElement) => {
-    closePopup(popupElement);})
+    const popupOpenedElement = document.querySelector('.popup_opened');
+    closePopup(popupOpenedElement);
   };
 };
 
