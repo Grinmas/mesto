@@ -1,3 +1,6 @@
+import { FormValidation } from "./FormValidator.js";
+import { Card } from "./Card.js";
+
 const popupProfile = document.querySelector('.profile-popup');
 const editButton = document.querySelector('.profile__edit-button');
 const profileCloseBtn = document.querySelector('.popup__close-button');
@@ -20,6 +23,33 @@ const popupFullCard = document.querySelector('.popup_full-card');
 const closeFullCardBtn = popupFullCard.querySelector('.popup__close-button');
 const closeButtons = document.querySelectorAll('.popup__close-button');
 const popupList = Array.from(document.querySelectorAll('.popup'));
+
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
 
 function closePopupEsc (evt) {
   if (evt.key === 'Escape') {
@@ -77,61 +107,37 @@ profileAddButton.addEventListener('click', function () {
   openPopup(popupAddCard);
 });
 
-
-function createCard(item) {
-  const cardElement = place.cloneNode(true);
-  const placeImage = cardElement.querySelector('.place__image');
-  const placeButton = cardElement.querySelector('.place__button');
-  const placeDeleteBtn = cardElement.querySelector('.place__delete-button');
-  const placeTitle = cardElement.querySelector('.place__title');
-  placeImage.src = item.link;
-  placeImage.alt = item.name;
-  placeTitle.textContent = item.name;
-  setLikesHandler(placeButton);
-  setDeleteHandler(placeDeleteBtn, cardElement);
-  setImageHandler (placeImage, placeTitle);
-  return cardElement
-};
-
-function setLikesHandler (placeButton) {
-  placeButton.addEventListener('click', function (evt) {
-    evt.target.classList.toggle('place__button_active');
-  });
-};
-
-function setDeleteHandler (placeDeleteBtn, cardElement) {
-  placeDeleteBtn.addEventListener('click', function (evt) {
-    cardElement.remove();
-  });
-};
-
-function setImageHandler (placeImage, placeTitle) {
-  placeImage.addEventListener('click', function (evt) {
-    const popupImage = popupFullCard.querySelector('.popup__image');
-    const popupCaption = popupFullCard.querySelector('.popup__caption');
-    const imageFullCard = popupImage;
-    const captionFullCard = popupCaption;
-    imageFullCard.src = placeImage.src;
-    imageFullCard.alt = placeTitle.textContent;
-    captionFullCard.textContent = placeTitle.textContent;
-    openPopup(popupFullCard);
-  });
-};
-
-initialCards.forEach(function(item) {
-  const placeElement = createCard(item)
-  places.append(placeElement);
+initialCards.forEach((data) => {
+  const defaultCard = new Card(data, '#place-template');
+  const cardElement = defaultCard.generateCard();
+  places.append(cardElement);
 });
 
 function addCard (evt) {
   evt.preventDefault();
-  const item = { name: inputPlaceName.value, link: inputPlaceSrc.value };
-  const placeElement = createCard(item)
-  places.prepend(placeElement);
-  formAddCard.reset();
-  closePopup(popupAddCard);
-  submitButton.setAttribute('disabled', true);
-  submitButton.classList.add('popup__form-submit_invalid');
+  const data = { name: inputPlaceName.value, link: inputPlaceSrc.value };
+  const userCard = new Card(data, '#place-template')
+  const cardElement = userCard.generateCard();
+  places.append(cardElement);
+  
 };
  
 formAddCard.addEventListener('submit', addCard);
+
+
+//Валидация форм:
+
+const settings = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__form-submit',
+  inactiveButtonClass: 'popup__form-submit_invalid',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_active'
+};
+
+const formList = Array.from(document.querySelectorAll('.popup__form'));
+formList.forEach((formElement) => {
+  const validationPopupForm = new FormValidation(settings, formElement);
+  validationPopupForm.enableValidation();
+})
