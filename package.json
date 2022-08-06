@@ -1,0 +1,39 @@
+{
+  "name": "yandex_praktikum",
+  "version": "0.0.1",
+  "description": "Адаптивная страница, куда можно добавлять карточки с фотографиями, удалять их, ставить лайки, редактировать профиль. Есть возможность открыть фотографию в полном размере и закрыть ее кликом на оверлей и кнопкой ESC на клавиатуре.\r Это одна из проектных работ Яндекс практикума, главное ее отличие от предыдущих, это то, что реализованы несколько popup с применение JavaScript, а формы валидированы.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Grinmas/mesto.git"
+  },
+  "author": "\"\"\u001b[DVladimirov Grigori\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Grinmas/mesto/issues"
+  },
+  "homepage": "https://github.com/Grinmas/mesto#readme",
+  "dependencies": {
+    "core-js": "^3.24.1",
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "autoprefixer": "^10.4.8",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.12",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "postcss-loader": "^7.0.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3"
+  }
+}

@@ -2,19 +2,18 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="./pages/index.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
   <title>Mesto</title>
 </head>
 <body class="page">
   <div class="page__container">
     <header class="header">
-      <img src="./Image/header-logo.svg" class="header__logo" alt="Логотип - места России">
+      <img src="<%=require('./Image/header-logo.svg')%>" class="header__logo" alt="Логотип - места России">
     </header>         
     
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="./Image/profile-avatar.jpg" alt="Аватарка">
+        <img class="profile__avatar" src="<%=require('./Image/profile-avatar.jpg')%>" alt="Аватарка">
         <div class="profile__info">
           <div class="profile__container">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -77,12 +76,9 @@
   <div class="popup popup_full-card popup_opacity">
     <div class="popup__container">
       <button class="popup__close-button opacity" type="button"></button>
-      <img class="popup__image">
+      <img class="popup__image" alt = "" src="#">
       <h2 class="popup__caption"></h2>
     </div>
   </div>
-  <script type="module" src="./scripts/Card.js"></script>
-  <script type="module" src="./scripts/FormValidator.js"></script>
-  <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>

@@ -1,11 +1,10 @@
 
 class Card {
-  constructor(data, cardSelector, openPopup, handleCardClick) {
+  constructor(data, cardSelector, handleCardClick) {
     this._cardSelector = cardSelector;
     this._name = data.name;
     this._link = data.link;
-
-    this._openPopup = openPopup;
+    
     this._handleCardClick = handleCardClick;
 
     this._elementTemplate = this._getTemplate();
