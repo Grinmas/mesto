@@ -1,9 +1,9 @@
-import { FormValidation } from "../components/FormValidator.js";
-import { Card } from "../components/Card.js";
-import Section from "../components/Section.js";
-import PopupWithImage from "../components/PopupWithImage.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import UserInfo from "../components/UserInfo.js";
+import { FormValidation } from "../scripts/components/FormValidator.js";
+import { Card } from "../scripts/components/Card.js";
+import Section from "../scripts/components/Section.js";
+import PopupWithImage from "../scripts/components/PopupWithImage.js";
+import PopupWithForm from "../scripts/components/PopupWithForm.js";
+import UserInfo from "../scripts/components/UserInfo.js";
 import "../pages/index.css";
 
 const popupProfile = document.querySelector('.profile-popup');
@@ -15,8 +15,8 @@ const popupJobInput = document.querySelector('.popup__input_el_job');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 const profileAddButton = document.querySelector('.profile__add-button');
-const popupAddCard = document.querySelector('.popup_add-card');
-const submitButton = popupAddCard.querySelector('.popup__form-submit');
+const popupCardAdd = document.querySelector('.popup_add-card');
+const submitButton = popupCardAdd.querySelector('.popup__form-submit');
 const closeAddCard =document.querySelector('.popup__close-add-card');
 const places = document.querySelector('.places');
 const placeTemplate = document.querySelector('#place-template').content;
@@ -59,13 +59,13 @@ const initialCards = [
 ];
 
 
-const editProfilePopup = new PopupWithForm ({
+const ProfilePopupEdit = new PopupWithForm ({
   popupSelector: '.profile-popup',
   handleFormSubmit: (formData) => {
     const infoUserSet = userInfo.setUserInfo(formData)
   }
 });
-editProfilePopup.setEventListeners();
+ProfilePopupEdit.setEventListeners();
 
 const userInfo = new UserInfo({
   username: '.profile__title',
@@ -76,13 +76,13 @@ editButton.addEventListener('click', () => {
   const info = userInfo.getUserInfo();
   popupNameInput.value = info.username;
   popupJobInput.value = info.job;
-  editProfilePopup.open();
+  ProfilePopupEdit.open();
   formValidators[ profileForm.getAttribute('name') ].resetValidation();
 })
 
 
 
-const addCardPopup = new PopupWithForm ({
+const PopupAddCard = new PopupWithForm ({
   popupSelector: '.popup_add-card',
   handleFormSubmit: (formData) => {
     const cardElement = createCard(formData);
@@ -90,11 +90,11 @@ const addCardPopup = new PopupWithForm ({
   }
   
 })
-addCardPopup.setEventListeners();
+PopupAddCard.setEventListeners();
 
 
 profileAddButton.addEventListener('click', () => {
-  addCardPopup.open();
+  PopupAddCard.open();
   formValidators[ formAddCard.getAttribute('name') ].resetValidation();
 })
 
