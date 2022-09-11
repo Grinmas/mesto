@@ -1,0 +1,11 @@
+.popup__link-avatar-error {
+  position: absolute;
+  top: 134px;
+  left: 8.4%;
+}
+
+@media screen and (max-width: 490px) {
+  .popup__link-avatar-error {
+    top: 188px;
+  }
+}

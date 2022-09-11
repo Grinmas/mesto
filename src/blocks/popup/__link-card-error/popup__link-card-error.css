@@ -1,11 +1,11 @@
 .popup__link-card-error {
   position: absolute;
-  top: 183px;
-  left: 8.4%;
+  bottom: 66px;
+  left: 1px;
 }
 
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 335px) {
   .popup__link-card-error {
-    top: 188px;
+    bottom: 64px;
   }
 }

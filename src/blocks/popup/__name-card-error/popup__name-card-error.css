@@ -1,11 +1,5 @@
 .popup__name-card-error {
   position: absolute;
-  top: 136px;
-  left: 8.4%;
-}
-
-@media screen and (max-width: 490px) {
-  .popup__name-card-error {
-    top: 139px;
-  }
+  bottom: 68%;
+  left: 1px;
 }
