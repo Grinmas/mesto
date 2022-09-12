@@ -14,6 +14,15 @@ import {popupProfile, avatarImage, editButton, avatarEditButton, profileCloseBtn
   closeButtons, popupList, config} from "../scripts/utils/constants.js";
 
 
+
+  const cardsList = new Section({
+    renderer: (item) => {
+      const cardElement = createCard(item);
+      cardsList.addItem(cardElement);
+    },
+  }, places);
+
+
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-46',
   headers: {
@@ -22,31 +31,18 @@ const api = new Api({
   }
 });
 
-Promise.resolve(api.getInitialCards())
-  .then((initialCards) => {
-    cardsList.renderItems(initialCards);    
-  })
-  .catch((err) => {
-    console.log(`Ошибка: ${err}`);
-  })
-
-const cardsList = new Section({
-  renderer: (item) => {
-    const cardElement = createCard(item);
-    cardsList.addItem(cardElement);
-  },
-}, places);
 
 let userId
 
-api.getUserInfoServer()
-  .then((userInfoServer) => {
+Promise.all([api.getInitialCards(), api.getUserInfoServer()])
+  .then(([initialCards, userInfoServer]) => {
     userInfo.setUserInfoServer(userInfoServer);
     userId = userInfoServer._id;
+    cardsList.renderItems(initialCards);
   })
   .catch((err) => {
     console.log(`Ошибка: ${err}`);
-  });
+  })
 
 const profilePopupEdit = new PopupWithForm ({
   popupSelector: '.profile-popup',
@@ -91,8 +87,8 @@ const popupAvatarEdit = new PopupWithForm ({
   handleFormSubmit: (formData) => {
     popupAvatarEdit.loading(true)
     api.setUserAvatarServer(formData)
-      .then(() => {
-        avatarImage.src = formData.link;
+      .then((data) => {
+        avatarImage.src = data.avatar;
         popupAvatarEdit.close();
       })
       .catch((err) => {
